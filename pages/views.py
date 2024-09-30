@@ -1,3 +1,4 @@
+from django.urls import reverse_lazy
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView
@@ -17,4 +18,5 @@ class PageDetailView(DetailView):
 class PageCreate(CreateView):
     model = Page
     fields = ["title", "content", 'order']
+    success_url = reverse_lazy("pages:pages") # Redirecciona a la url
 
